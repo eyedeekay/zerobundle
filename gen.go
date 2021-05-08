@@ -275,7 +275,7 @@ func download(path string, url string) error {
 }
 
 func generateGoGenerator(platform string) error {
-	newfile := `package gingershrew
+	newfile := `package zerobundle
 
 import (
 `

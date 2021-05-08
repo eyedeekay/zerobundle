@@ -1,4 +1,4 @@
-package gingershrew
+package zerobundle
 
 import (
 	"github.com/eyedeekay/zerobundle/parts/0"
