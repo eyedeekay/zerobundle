@@ -10,7 +10,7 @@ LINE_ITEM_2=`grep 'var ZERO_VERSION' import/import.go`
 echo:
 	@echo "type make version to do release $(VERSION)"
 
-all: fmt gen build
+all: echo fmt gen build
 
 build:
 	go build -tags netgo -o zero ./go-zero

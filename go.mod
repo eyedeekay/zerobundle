@@ -1,6 +1,6 @@
 module github.com/eyedeekay/zerobundle
 
-go 1.14
+go 1.13
 
 require (
 	github.com/eyedeekay/checki2cp v0.0.17
