@@ -175,6 +175,8 @@ func GetZeroProcess() *os.Process {
 func LatestZero() string {
 	if runtime.GOOS == "windows" {
 		return filepath.Join(LatestZeroBinDir(), "i2p-zero.exe")
+	} else if runtime.GOOS == "darwin" {
+		return filepath.Join(LatestZeroBinDir(), "launch.sh")
 	} else {
 		return filepath.Join(LatestZeroBinDir(), "i2p-zero")
 	}
@@ -183,6 +185,8 @@ func LatestZero() string {
 func LatestZeroJavaHome() string {
 	if runtime.GOOS == "windows" {
 		return filepath.Join(LatestZeroBinDirJavaHome(), "i2p-zero.exe")
+	} else if runtime.GOOS == "darwin" {
+		return filepath.Join(LatestZeroBinDirJavaHome(), "launch.sh")
 	} else {
 		return filepath.Join(LatestZeroBinDirJavaHome(), "i2p-zero")
 	}
