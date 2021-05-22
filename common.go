@@ -19,11 +19,13 @@ import (
 var I2P_DIRECTORY_PATH = os.Getenv("I2P_DIRECTORY_PATH")
 
 func userFind() string {
-	if I2P_DIRECTORY_PATH != "" {
-		return filepath.Dir(I2P_DIRECTORY_PATH)
-	}
 	if os.Geteuid() == 0 {
 		log.Fatal("Do not run this application as root!")
+	}
+	if I2P_DIRECTORY_PATH != "" {
+		un := filepath.Dir(I2P_DIRECTORY_PATH)
+		os.MkdirAll(filepath.Join(un, "i2p"), 0755)
+		return un
 	}
 	if un, err := os.UserHomeDir(); err == nil {
 		os.MkdirAll(filepath.Join(un, "i2p"), 0755)
@@ -51,6 +53,7 @@ func UnpackZero() error {
 	var dir string
 	var err error
 	if dir, err = UnpackZeroDir(); err == nil {
+		os.MkdirAll(dir, 0755)
 		if err := Unpack(dir); err != nil {
 			return err
 		}

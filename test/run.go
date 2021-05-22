@@ -13,12 +13,15 @@ import (
 )
 
 func main() {
-	if err := UnpackZeroJavaHome(); err != nil {
+	/*if err := UnpackZeroJavaHome(); err != nil {
+		log.Println(err)
+	}*/
+	if err := UnpackZero(); err != nil {
 		log.Println(err)
 	}
-	latest := LatestZeroJavaHome()
+	latest := LatestZero()
 	log.Println("latest zero version is:", latest)
-	if err := RunZeroJavaHome(); err != nil {
+	if err := RunZero(); err != nil {
 		log.Fatal(err)
 	}
 }
