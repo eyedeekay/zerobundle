@@ -36,7 +36,7 @@ func userFind() string {
 
 var JAVA_I2P_OPT_DIR = filepath.Join(userFind(), "/i2p/opt/i2p-zero")
 
-// UnpackI2PdDir tells the bundle where the I2Pd-bundling app exists
+// UnpackI2PdDir tells the bundle where the I2P-bundling app exists
 func UnpackZeroDir() (string, error) {
 	if I2P_DIRECTORY_PATH != "" {
 		return I2P_DIRECTORY_PATH, nil

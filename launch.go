@@ -249,6 +249,11 @@ func CommandZero() (*exec.Cmd, error) {
 	}
 	latest := LatestZero()
 	cmd = exec.Command(latest, baseargs(), configargs())
+	cmd.Dir, err = UnpackZeroDir()
+	if err != nil {
+		return nil, err
+	}
+	log.Println("Running i2p-zero in", cmd.Dir)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd, nil
@@ -260,6 +265,11 @@ func CommandZeroContext(ctx context.Context) (*exec.Cmd, error) {
 	}
 	latest := LatestZero()
 	cmd = exec.CommandContext(ctx, latest, baseargs(), configargs())
+	cmd.Dir, err = UnpackZeroDir()
+	if err != nil {
+		return nil, err
+	}
+	log.Println("Running i2p-zero in", cmd.Dir)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd, nil
@@ -289,6 +299,8 @@ func CommandZeroJavaHome() (*exec.Cmd, error) {
 	}
 	latest := LatestZeroJavaHome()
 	cmd = exec.Command(latest)
+	cmd.Dir = JAVA_I2P_OPT_DIR
+	log.Println("Running i2p-zero in", cmd.Dir)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd, nil
@@ -300,6 +312,8 @@ func CommandZeroJavaHomeContext(ctx context.Context) (*exec.Cmd, error) {
 	}
 	latest := LatestZeroJavaHome()
 	cmd = exec.CommandContext(ctx, latest)
+	cmd.Dir = JAVA_I2P_OPT_DIR
+	log.Println("Running i2p-zero in", cmd.Dir)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd, nil
