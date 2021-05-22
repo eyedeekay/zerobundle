@@ -27,10 +27,20 @@ var i2cpConf = `i2cp.tcp4.host=127.0.0.1
 i2cp.tcp4.port=7654
 `
 
-var zd, _ = UnpackZeroDir()
+func zd() (dir string) {
+	dir, _ = UnpackZeroDir()
+	return
+}
 
-var baseargs = "--i2p.dir.base=" + filepath.Join(zd, "base")
-var configargs = "--i2p.dir.config=" + filepath.Join(zd, "config")
+func baseargs() (args string) {
+	args = "--i2p.dir.base=" + filepath.Join(zd(), "base")
+	return
+}
+
+func configargs() (args string) {
+	args = "--i2p.dir.config=" + filepath.Join(zd(), "config")
+	return
+}
 
 func WriteI2CPConf() error {
 	dir, err := UnpackZeroDir()

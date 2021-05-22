@@ -3,7 +3,7 @@ module github.com/eyedeekay/zerobundle
 go 1.13
 
 require (
-	github.com/eyedeekay/checki2cp v0.0.17
+	github.com/eyedeekay/checki2cp v0.0.18
 	github.com/eyedeekay/zerobundle/parts/0 v0.0.0-20210508034048-7cd2a4edba67
 	github.com/eyedeekay/zerobundle/parts/1 v0.0.0-20210508034048-7cd2a4edba67
 	github.com/eyedeekay/zerobundle/parts/10 v0.0.0-20210508034048-7cd2a4edba67

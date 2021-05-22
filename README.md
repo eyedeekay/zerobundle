@@ -22,11 +22,6 @@ I2P is not present.
 Use Scenarios
 -------------
 
-**ABSOLUTELY do not** use it for applications that use i2ptunnel via ```tunnel-control.sh```! **SAM only**. A goal of
-this is to build apps that can seamlessly switch between an *embedded* I2P Router provided by this Go package and a
-*package-provided* I2P Router which may be installed per-user or system-wide as the case may be. The best way to achieve
-this is with SAM.
-
 ### **Scenario A:** I2P Router is installed on host PC *Prior to* the first run of the out-of-tree application.
 
 In this scenario, the I2P Router in use is the package-installed router, and the embedded one is left alone.
@@ -39,10 +34,6 @@ In this scenario, the I2P Router in use is the embedded router.
 
 In this scenario, the keys used for identifying the SAM tunnels are managed by the application and thus migrate with
 the application from the embedded router to the package-installed router.
-
-### **Scenario D:** Misuse, tunnel-control.sh tunnels are somehow used
-
-More details on this scenario later. Don't do it. This might change sometime in the future but probably not soon.
 
 Example Usage:
 --------------
