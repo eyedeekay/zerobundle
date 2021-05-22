@@ -249,6 +249,7 @@ func CommandZero() (*exec.Cmd, error) {
 	}
 	latest := LatestZero()
 	cmd = exec.Command(latest, baseargs(), configargs())
+	var err error
 	cmd.Dir, err = UnpackZeroDir()
 	if err != nil {
 		return nil, err
@@ -265,6 +266,7 @@ func CommandZeroContext(ctx context.Context) (*exec.Cmd, error) {
 	}
 	latest := LatestZero()
 	cmd = exec.CommandContext(ctx, latest, baseargs(), configargs())
+	var err error
 	cmd.Dir, err = UnpackZeroDir()
 	if err != nil {
 		return nil, err
