@@ -94,7 +94,6 @@ func ZeroMain() error {
 	return nil
 }
 
-
 // ZeroAsFreestandingSAM need a SAM API? Don't have one? Launch a zero instance
 // and tell it to start SAM because sometimes you want things to be easy.
 func ZeroAsFreestandingSAM() error {
