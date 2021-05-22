@@ -29,16 +29,19 @@ i2cp.tcp4.port=7654
 
 func zd() (dir string) {
 	dir, _ = UnpackZeroDir()
+	os.MkdirAll(dir, 0755)
 	return
 }
 
 func baseargs() (args string) {
 	args = "--i2p.dir.base=" + filepath.Join(zd(), "base")
+	os.MkdirAll(filepath.Join(zd(), "base"), 0755)
 	return
 }
 
 func configargs() (args string) {
 	args = "--i2p.dir.config=" + filepath.Join(zd(), "config")
+	os.MkdirAll(filepath.Join(zd(), "config"), 0755)
 	return
 }
 
@@ -90,6 +93,7 @@ func ZeroMain() error {
 	time.Sleep(1 * time.Second)
 	return nil
 }
+
 
 // ZeroAsFreestandingSAM need a SAM API? Don't have one? Launch a zero instance
 // and tell it to start SAM because sometimes you want things to be easy.
