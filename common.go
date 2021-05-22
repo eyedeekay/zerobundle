@@ -20,7 +20,7 @@ var I2P_DIRECTORY_PATH = os.Getenv("I2P_DIRECTORY_PATH")
 
 func userFind() string {
 	if I2P_DIRECTORY_PATH != "" {
-		return filepath.Dir(I2P_DIRECTORY_PATH), nil
+		return filepath.Dir(I2P_DIRECTORY_PATH)
 	}
 	if os.Geteuid() == 0 {
 		log.Fatal("Do not run this application as root!")

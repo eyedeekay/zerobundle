@@ -217,7 +217,7 @@ func CommandZero() (*exec.Cmd, error) {
 		log.Println(err)
 	}
 	latest := LatestZero()
-	cmd = exec.Command(latest, baseargs, configargs)
+	cmd = exec.Command(latest, baseargs(), configargs())
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd, nil
@@ -228,7 +228,7 @@ func CommandZeroContext(ctx context.Context) (*exec.Cmd, error) {
 		log.Println(err)
 	}
 	latest := LatestZero()
-	cmd = exec.CommandContext(ctx, latest, baseargs, configargs)
+	cmd = exec.CommandContext(ctx, latest, baseargs(), configargs())
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	return cmd, nil
