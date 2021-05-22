@@ -52,7 +52,7 @@ func Unpack(destinationDirectory string) error {
 		platform2 = "win"
 	}
 	if runtime.GOOS == "darwin" {
-		platform = "mac"
+		platform = "mac-gui"
 		platform2 = "mac"
 	}
 	if destinationDirectory == "" {

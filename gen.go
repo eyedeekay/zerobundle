@@ -245,7 +245,7 @@ func Download() error {
 	if err := download("i2p-zero-win."+zeroversion+".zip", "https://github.com/i2p-zero/i2p-zero/releases/download/"+zeroversion+"/i2p-zero-win-gui."+zeroversion+".zip"); err != nil {
 		return err
 	}
-	if err := download("i2p-zero-darwin."+zeroversion+".zip", "https://github.com/i2p-zero/i2p-zero/releases/download/"+zeroversion+"/i2p-zero-mac."+zeroversion+".zip"); err != nil {
+	if err := download("i2p-zero-darwin."+zeroversion+".zip", "https://github.com/i2p-zero/i2p-zero/releases/download/"+zeroversion+"/i2p-zero-mac-gui."+zeroversion+".zip"); err != nil {
 		return err
 	}
 	return nil
