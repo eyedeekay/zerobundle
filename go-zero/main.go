@@ -6,6 +6,7 @@ see ./LICENSE
 */
 
 import (
+	"flag"
 	"log"
 )
 
@@ -14,7 +15,16 @@ import (
 )
 
 func main() {
-	if err := zerobundle.ZeroMain(); err != nil {
-		log.Println(err)
+	bemysam := flag.Bool("sam", false, "run as a SAM bridge on another router's I2CP port.")
+	flag.Parse()
+	switch *bemysam {
+	case true:
+		if err := zerobundle.ZeroAsFreestandingSAM(); err != nil {
+			log.Println(err)
+		}
+	default:
+		if err := zerobundle.ZeroMain(); err != nil {
+			log.Println(err)
+		}
 	}
 }

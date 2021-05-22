@@ -91,6 +91,33 @@ func ZeroMain() error {
 	return nil
 }
 
+// ZeroAsFreestandingSAM need a SAM API? Don't have one? Launch a zero instance
+// and tell it to start SAM because sometimes you want things to be easy.
+func ZeroAsFreestandingSAM() error {
+	if err := UnpackZero(); err != nil {
+		log.Println(err)
+	}
+	latest := LatestZero()
+	log.Println("latest zero version is:", latest)
+	if !CheckZeroIsRunning() {
+		log.Println("Zero doesn't appear to be running.", latest)
+		if err := StartZero(); err != nil {
+			return err
+		}
+	}
+	if ok, conn := Available(); ok {
+		log.Println("Starting SAM")
+		time.Sleep(3 * time.Second)
+		if err := SAM(conn); err != nil {
+			return err
+		}
+	} else {
+		return fmt.Errorf("I2P router availability failure")
+	}
+	time.Sleep(1 * time.Second)
+	return nil
+}
+
 var cmd *exec.Cmd
 
 func loopbackInterface() string {
