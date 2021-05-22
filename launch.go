@@ -50,6 +50,7 @@ func WriteI2CPConf() error {
 	if err != nil {
 		return err
 	}
+	os.MkdirAll(dir, 0755)
 	os.Setenv("I2CP_HOME", dir)
 	os.Setenv("GO_I2CP_CONF", "/.i2cp.conf")
 	home := os.Getenv("I2CP_HOME")
